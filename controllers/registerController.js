@@ -1,10 +1,11 @@
- import { userModel } from "../models/userModels";
-import { hashPassword } from "../utilities/authash";
+ import  userModel  from "../models/userModels.js";
+import { comparePassword, hashPassword } from "../utilities/authash.js";
+import jwt from "jsonwebtoken";
  
  export const registerController = async(req,res)=>{
     try{
         //get these attribute
-        const {name,email,password,phone,address,role}=req.body;
+        const {name,email,password,phone,address}=req.body;
         //validation
         if(!name){
             return res.send({error:'Name is required'})
@@ -34,7 +35,7 @@ import { hashPassword } from "../utilities/authash";
         // register user
         const hashedPass=await hashPassword(password);
         //save
-        const user=new userModel({name,email,phone,address,password:hashedPass,role}).save();
+        const user= await new userModel({name,email,phone,address,password:hashedPass}).save();
         res.status(200).send({
             success:true,
             message:'user register succesfully',
@@ -51,4 +52,81 @@ import { hashPassword } from "../utilities/authash";
         })
     }
       
+};
+
+//POST LOGIN
+export const loginController=async(req,res)=>{
+try{
+    const {email,password}=req.body;
+    // check the validation
+    if(!email||!password){
+        res.status(404).send({
+            success:false,
+            message:'Invalid email or pssword',
+
+    })
+
 }
+//check user
+const user=await userModel.findOne({email})
+if(!user){
+    return res.status(404).send({
+        sucess:false,
+        meassage:'email is not registered'
+
+    })
+}
+
+const match =await comparePassword(password,user.password);
+if(!match){
+    return res.status(200).send({
+        sucess:false,
+        meassage:'password is incorrect'
+
+    })
+    
+}
+//token
+
+const  token= await jwt.sign({_id:user._id},process.env.jwt_code,{expiresIn:'7d'});
+res.status(200).send({
+    sucess:true,
+    meassage:'Login succesfully',
+    user:{
+        name:user.name,
+        email:user.email,
+        phone:user.phone,
+        address:user.address
+
+
+    },
+    token,
+
+});
+}catch(e){
+    res.status(500).send({
+        success:false,
+        message:'Error in login',
+        e:e.message
+    })
+
+
+}
+
+
+};
+
+//Test (user/admin)
+
+export const testController=(req,res)=>{
+    try{
+        res.send('protected middleware')
+    } catch(error){
+        console.log(error)
+        res.send({error})
+    }
+   
+
+}
+
+
