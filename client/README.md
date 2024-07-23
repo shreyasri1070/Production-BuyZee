@@ -68,3 +68,9 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+<!-- toastify---pop up message -->
+<!-- axios----to executte the http request liike get,post -->
+<!-- concurrently--to execute two commnd  -->
+<!-- cors--hwndle the cross origin error when two port runing -->

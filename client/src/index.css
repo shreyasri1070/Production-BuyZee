@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&display=swap');
 *{
   padding: 0;
   margin: 0;
@@ -12,6 +13,10 @@ font-family: "Playfair Display", serif; */
 /* font-family: "Merriweather", serif;
   font-weight: 700;
   font-style: normal; */
+/* 
+  font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto; */
+    /* font-family: "Josefin Sans", sans-serif; */
   /* Navbar */
   .navbar{
     font-family: "Merriweather", serif;; 
@@ -20,11 +25,137 @@ font-family: "Playfair Display", serif; */
     line-height: 26px;
     text-transform: uppercase;
     box-shadow: 0 6px 6px -6px gray;
-   /* --webkit-box-shadow: */
-   border-bottom:solid gray;
+   --webkit-box-shadow: 0 6px 6px -6px gray;
+   border-bottom: solid gray !important;
+ 
  
 
 
   }
+  .navbar-toggler{
+    margin-bottom: 5px;
+  }
+  .nav-link{
+    font-weight: 300;
+    margin:0 5px;
+   
 
+
+  }
+  .active{
+   border-bottom: 2px solid gray  ;
+   padding-bottom: 2px;
+  border-radius: 30%;
+
+  }
+  @media only screen and (max-width: 992px) {
+    .active {
+      border:2px solid gray;
+      border-radius: 0;
+      box-shadow:0px 3px 8px 0px grey ;
+      padding-left: 5px;
+    }
+  }
+  .navbar-brand{
+    font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 1px;
+    
+  }
+
+  /* Footer section */
+.footer{
+  color: white;
+  background:black; /*old browser support*/
+  background: -webkit-linear-gradient(to left,#000000,#4b4b4b);
+  background: linear-gradient(to left,#000000,#4b4b4b);
+  padding: 10px 3px 3px 3px;
   
+}
+
+.footer a{
+  text-decoration: none;
+  color: white;
+ 
+}
+.footer a:hover{
+  border-bottom: 2px solid #4b4b4b;
+}
+
+/* Page Not Found */
+
+.pnf{
+  display: flex;
+  flex-direction: column;
+  min-height: 65vh;
+  align-items: center;
+  justify-content: center;
+}
+.pnf-heading{
+  font-weight: 600;
+  font-size: 80px;
+
+
+}
+  .pnf-title{
+    font-weight: 500;
+    font-size: 40px;
+  }
+  .pnf-btn{
+    text-decoration: none;
+    border: 2px solid rgb(89, 169, 230);
+    padding: 10px;
+    margin-top:20px;
+    border-radius: 40%;
+
+  }
+  /* Register */
+  .form-container{
+    display: flex;
+    min-height: 82.6vh;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: none;
+    background-color: #fbf7d9;
+    background: linear-gradient(0deg, #fbf7d9 50%, #b5fffc 100%);
+  }
+  .form-container form{
+    background-color: #fff;
+    padding: 25px;
+    min-width: 50vh;
+    box-shadow: -6px -6px 8px  black;
+      
+  }
+  .form-container form .title{
+    background-color: #3c3c3c;
+    color: white;
+    text-align: center;
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
+    padding-bottom:5px ;
+    
+   
+
+
+  }
+  .form-container form label{
+    font-weight: 500;
+    font-family: "Roboto Slab", serif;
+  }
+  .form-container form input{
+    
+    border: none;
+    border-bottom: 1px solid #000;
+    border-radius: 0;
+    
+
+  }
+ .form-container form button{
+width:250px;
+margin-left: 35px;
+font-family: "Roboto Slab", serif;
+}
+ 

@@ -5,6 +5,7 @@ import morgan from 'morgan';
 import mongoose from 'mongoose'
 import ConnectDB from '../config/db.js'; // In ES6 we have to give module extension to import
 import authRoute from '../Routes/authroute.js';
+import cors from 'cors'
 const app=express();
 //config env
 dotenv.config({path:'../.env'});
@@ -14,6 +15,7 @@ ConnectDB();
 
 
 //middleware
+app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'))
 //routes

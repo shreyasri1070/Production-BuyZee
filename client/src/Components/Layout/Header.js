@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom'
+import {NavLink,Link} from 'react-router-dom'
 
 const Header = () => {
   return (
@@ -10,20 +10,24 @@ const Header = () => {
       <span className="navbar-toggler-icon" />
     </button>
     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <NavLink className="navbar-brand" href="#">BuyZee</NavLink>
+      <Link className="navbar-brand" href="#">BuyZee</Link>  
+      {/* href="#" means to link to top of page */}
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
 
       <li className="nav-item">
-          <NavLink to="/" className="nav-link active" aria-current="page" href="#">Home</NavLink>
+          <NavLink to="/" className="nav-link " aria-current="page" >Home</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to="/register" className="nav-link active" aria-current="page" href="#">Register</NavLink>
+          <NavLink to="/category" className="nav-link " aria-current="page" >Category</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to="/login" className="nav-link" href="#">Login</NavLink>
+          <NavLink to="/register" className="nav-link  " aria-current="page" >Register</NavLink>
         </li>
         <li className="nav-item">
-          <NavLink to="/login" className="nav-link" href="#">Cart(0)</NavLink>
+          <NavLink to="/login" className="nav-link" >Login</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink to="/cart" className="nav-link" >Cart(0)</NavLink>
         </li>
       
       </ul>

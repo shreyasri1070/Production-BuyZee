@@ -8,26 +8,26 @@ import jwt from "jsonwebtoken";
         const {name,email,password,phone,address}=req.body;
         //validation
         if(!name){
-            return res.send({error:'Name is required'})
+            return res.send({message:'Name is required'})
         }
         if(!email){
-            return res.send({error:'Email is required'})
+            return res.send({message:'Email is required'})
         }
         if(!password){
-            return res.send({error:'Password is required'})
+            return res.send({message:'Password is required'})
         }
         if(!phone){
-            return res.send({error:'Phone No. is required'})
+            return res.send({message:'Phone No. is required'})
         }
         if(!address){
-            return res.send({error:'address is required'})
+            return res.send({message:'address is required'})
         }
 
         // check the existence of that user
         const  existingUser= await userModel.findOne({email})
         if(existingUser){
             return res.status(200).send({
-                success:true,
+                success:false,
                 message:'Already register  please login'
             })
         }
@@ -72,27 +72,31 @@ const user=await userModel.findOne({email})
 if(!user){
     return res.status(404).send({
         sucess:false,
-        meassage:'email is not registered'
+        message:'email is not registered'
 
     })
+    
 }
 
 const match =await comparePassword(password,user.password);
 if(!match){
     return res.status(200).send({
         sucess:false,
-        meassage:'password is incorrect'
+        message:'password is incorrect'
 
     })
     
+    
 }
+
 //token
 
 const  token= await jwt.sign({_id:user._id},process.env.jwt_code,{expiresIn:'7d'});
-res.status(200).send({
-    sucess:true,
-    meassage:'Login succesfully',
+ res.status(200).send({
+    success:true,
+    message:'Login succesfully',
     user:{
+        _id: user._id,
         name:user.name,
         email:user.email,
         phone:user.phone,
