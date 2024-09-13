@@ -10,12 +10,13 @@ const Register = () => {
     const [phone,setPhone]=useState("")
     const [address,setAddress]=useState("")
     const [password,setPassword]=useState("");
+    const [answer,setAnswer]=useState("");
     const navigate=useNavigate();
     // submit function
     const handleSubmit=async(e)=>{
       e.preventDefault()
       try{
-        const res=await axios.post("/api/v1/auth/register",{name,email,password,phone,address});
+        const res=await axios.post("/api/v1/auth/register",{name,email,password,phone,address,answer});
         if(res && res.data.success){
          toast.success(res.data.message);
           navigate("/login")
@@ -62,6 +63,11 @@ const Register = () => {
   <div className="mb-3">
     <label htmlFor="exampleInputName" className="form-label">Phone</label>
     <input type="tel" className="form-control"  onChange={(e)=>setPhone(e.target.value)}  value={phone} id="exampleInputPhone1"required />
+
+  </div>
+  <div className="mb-3">
+    <label htmlFor="exampleInputName" className="form-label">Which is your first school?</label>
+    <input type="text" className="form-control"  onChange={(e)=>setAnswer(e.target.value)}  value={answer} id="exampleInputAddress" required />
 
   </div>
   

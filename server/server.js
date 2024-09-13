@@ -5,6 +5,8 @@ import morgan from 'morgan';
 import mongoose from 'mongoose'
 import ConnectDB from '../config/db.js'; // In ES6 we have to give module extension to import
 import authRoute from '../Routes/authroute.js';
+import categoryRoutes from '../Routes/categoryRoutes.js';
+import productRoutes from '../Routes/productRoutes.js';
 import cors from 'cors'
 const app=express();
 //config env
@@ -20,6 +22,9 @@ app.use(express.json());
 app.use(morgan('dev'))
 //routes
 app.use("/api/v1/auth",authRoute)
+app.use("/api/v1/category",categoryRoutes)
+app.use("/api/v1/product",productRoutes)
+
 //api
 app.get('/',(req,res)=>{
     res.send({

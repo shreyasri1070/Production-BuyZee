@@ -74,3 +74,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 <!-- axios----to executte the http request liike get,post -->
 <!-- concurrently--to execute two commnd  -->
 <!-- cors--hwndle the cross origin error when two port runing -->
+<!--morgan--simplifies the process of logging HTTP requests in a Node. js application by automatically generating logs for incoming requests.-->
+<!-- slugify--good for SEO  slugify(" How to slugify the title or sting in JavaScript? ")
+
+// Output: how-to-slugify-the-title-or-sting-in-javascript?-->
+
+<!-- formidable --it is used to store the photo in database -->
+
+<!-- antd -- it is used for design like form-->
+<!-- braintree--it will help to integrate payment gateway in react -->
+<!--braintree-web-drop-in-react-- it wille give the ui for payment gate way> 
+
+<!moment -- it used to display the date and time>

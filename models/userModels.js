@@ -23,8 +23,13 @@ const userSchema=new mongoose.Schema({
         required:true,
     },
     address:{
+        type:{},
+        required:true,
+    },
+    answer:{
         type:String,
         required:true,
+
     },
     role:{
         type:Number,
