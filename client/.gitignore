@@ -8,8 +8,11 @@
 # testing
 /coverage
 
-# production
-/build
+/public
+/src
+.config-overrides.js
+.package-lock.json
+.package.json
 
 # misc
 .DS_Store
