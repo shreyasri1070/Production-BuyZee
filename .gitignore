@@ -7,3 +7,4 @@
 /client/.config-overrides.js
 /client/.package-lock.json
 /client/.package.json
+/client/build
